@@ -1,0 +1,72 @@
+{
+  "name": "hexo-site",
+  "version": "0.0.0",
+  "private": true,
+  "hexo": {
+    "version": "5.4.2"
+  },
+  "scripts": {
+    "build": "hexo generate",
+    "eslint": "eslint .",
+    "mkdir:site": "rimraf ./site && mkdir site",
+    "mkdir:build_temp": "rimraf ./build_temp && mkdir build_temp",
+    "mkdir:public": "rimraf ./public && mkdir public && cd ./public && mkdir document",
+    "fix:hexo": "node ./fix_hexo.js",
+    "clean": "yarn fix:hexo && yarn mkdir:site &&  yarn mkdir:build_temp &&  yarn mkdir:public",
+    "start": " node ./scripts/start.js",
+    "start:doc": " cd ./site/docs && yarn start",
+    "prod": "npx pm2 start ./scripts/start.js -n doc-preview",
+    "stop": "npx pm2 stop doc-preview",
+    "kill": "node ./scripts/kill"
+  },
+  "dependencies": {
+    "@koa/router": "^10.1.1",
+    "axios": "^0.27.2",
+    "cheerio": "^0.22.0",
+    "clipboard": "^2.0.6",
+    "fs-extra": "^10.1.0",
+    "hexo": "5.4.2",
+    "hexo-clean-css": "^1.0.0",
+    "hexo-filter-nofollow": "^2.0.2",
+    "hexo-fs": "^3.1.0",
+    "hexo-generator-archive": "^1.0.0",
+    "hexo-generator-feed": "^3.0.0",
+    "hexo-generator-sitemap": "^2.0.0",
+    "hexo-renderer-marked": "^3.0.0",
+    "hexo-renderer-pug": "^1.0.0",
+    "hexo-renderer-stylus": "^2.0.0",
+    "hexo-renderer-swig": "^1.1.0",
+    "hexo-server": "^2.0.0",
+    "hexo-uglify": "^1.0.0",
+    "highlight.js": "^11.5.1",
+    "image-size": "^0.8.3",
+    "kill-port": "^2.0.1",
+    "koa": "^2.13.4",
+    "koa-static": "^5.0.0",
+    "koa2": "^2.0.0-alpha.7",
+    "koa2-proxy-middleware": "^0.0.4",
+    "lunr": "^2.3.9",
+    "node-fetch": "^2.6.1",
+    "pm2": "4.4.1",
+    "terminate": "^2.5.0",
+    "websocket": "^1.0.34",
+    "ws": "^8.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-hexo": "^4.0.0",
+    "husky": "^4.0.7",
+    "imagemin-lint-staged": "^0.4.0",
+    "lint-staged": "^10.2.2"
+  },
+  "husky": {},
+  "lint-staged": {
+    "*.{png,jpeg,jpg,gif,svg}": [
+      "imagemin-lint-staged",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": ">=8.10.0"
+  }
+}
