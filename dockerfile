@@ -6,6 +6,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 COPY . /app
+RUN yarn install
 # RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 # RUN apt-get update
 # RUN apt-get -y install sudo
@@ -22,5 +23,5 @@ COPY . /app
 # RUN yarn config set registry https://registry.npm.taobao.org --global
 # RUN yarn config set disturl https://npm.taobao.org/dist --global
 # RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -   
-EXPOSE 17088
+# EXPOSE 17088
 # CMD [ "npm", "prod" ]
