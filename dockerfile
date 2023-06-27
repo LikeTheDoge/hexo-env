@@ -1,6 +1,9 @@
 # FROM ubuntu:20.04
 FROM node:16
-
+ENV http_proxy "http://127.0.0.1:7890"
+ENV HTTP_PROXY "http://127.0.0.1:7890"
+ENV https_proxy "http://127.0.0.1:7890"
+ENV HTTPS_PROXY "http://127.0.0.1:7890"
 # Create app directory
 RUN mkdir -p /app
 WORKDIR /app
