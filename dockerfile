@@ -9,6 +9,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 COPY . /app
+RUN npm install yarn@2 --global 
 RUN yarn install
 # RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 # RUN apt-get update
