@@ -9,8 +9,10 @@ RUN mkdir -p /app
 WORKDIR /app
 
 COPY . /app
-RUN npm install yarn@2 --global 
+RUN yarn set version berry
 RUN yarn install
+RUN yarn add sharp
+RUN yarn add rimraf
 # RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 # RUN apt-get update
 # RUN apt-get -y install sudo
